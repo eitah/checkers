@@ -19,24 +19,24 @@ describe('Player', () => {
       });
     });
   });
-
-  describe('#initPieces', () => {
-    it('should initialize the pieces array', (done) => {
-      const p = new Player({
-        name: 'Joseph Irons',
-        color: 'white',
-      });
-
-      p.initPieces();
-      p.validate(err => {
-        expect(err).to.be.undefined;
-        expect(p.pieces.length).to.equal(12);
-        // expect(typeof p.pieces[0]).to.equal('Piece');
-        expect(p.pieces[0].color).to.equal('white');
-        expect(p.pieces[0].id).to.equal(1);
-        expect(p.pieces[0].location).to.deep.equal({ x: 0, y: 0 });
-        done();
-      });
-    });
-  });
+  //
+  // describe('#initPieces', () => {
+  //   it('should initialize the pieces array', (done) => {
+  //     const p = new Player({
+  //       name: 'Joseph Irons',
+  //       color: 'white',
+  //     });
+  //
+  //     p.initPieces();
+  //     p.validate(err => {
+  //       expect(err).to.be.undefined;
+  //       expect(p.pieces.length).to.equal(12);
+  //       // expect(typeof p.pieces[0]).to.equal('Piece');
+  //       expect(p.pieces[0].color).to.equal('white');
+  //       expect(p.pieces[0].id).to.equal(1);
+  //       expect(p.pieces[0].location).to.deep.equal({ x: 0, y: 0 });
+  //       done();
+  //     });
+  // //   });
+  // });
 });
