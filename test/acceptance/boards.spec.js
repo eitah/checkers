@@ -5,56 +5,59 @@ const request = require('supertest');
 const app = require('../../dst/server');
 const cp = require('child_process');
 
-describe('players', () => {
+describe('boards', () => {
   beforeEach((done) => {
     cp.execFile(`${__dirname}/../scripts/players_populate.sh`, { cwd: `${__dirname}/../scripts` }, () => {
-      done();
+      cp.execFile(`${__dirname}/../scripts/boards_populate.sh`, { cwd: `${__dirname}/../scripts` }, () => {
+        done();
+      });
     });
   });
 
   // create
-  describe('post /players', () => {
-    it('should create a player', (done) => {
+  describe('post /boards', () => {
+    it('should create a board', (done) => {
       request(app)
-      .post('/players')
+      .post('/boards')
       .send({
-        name: 'Rebecca Irons',
+        player1: '01234567890123456789aaa1',
+        player2: '01234567890123456789aaa2',
       })
       .end((err, rsp) => {
         expect(err).to.be.null;
         expect(rsp.status).to.equal(200);
-        expect(rsp.body.player.name).to.equal('Rebecca Irons');
+        expect(rsp.body.board.player1).to.equal('01234567890123456789aaa1');
         done();
       });
     });
   });
 
   // update
-  describe('put /players/:id', () => {
-    it('should update a player', (done) => {
+  describe('put /boards/:id', () => {
+    it('should update a board', (done) => {
       request(app)
-      .put('/players/01234567890123456789aaa1')
+      .put('/boards/01234567890123456789bbb1')
       .send({
-        name: 'George Irons',
+        player2: '01234567890123456789aaa3',
       })
       .end((err, rsp) => {
         expect(err).to.be.null;
         expect(rsp.status).to.equal(200);
-        expect(rsp.body.player.name).to.equal('George Irons');
+        expect(rsp.body.board.player2).to.equal('01234567890123456789aaa3');
         done();
       });
     });
   });
 
   // delete
-  describe('delete /players/:id', () => {
-    it('should delete a player', (done) => {
+  describe('delete /boards/:id', () => {
+    it('should delete a board', (done) => {
       request(app)
-      .delete('/players/01234567890123456789aaa1')
+      .delete('/boards/01234567890123456789bbb2')
       .end((err, rsp) => {
         expect(err).to.be.null;
         expect(rsp.status).to.equal(200);
-        expect(rsp.body.id).to.equal('01234567890123456789aaa1');
+        expect(rsp.body.id).to.equal('01234567890123456789bbb2');
         done();
       });
     });

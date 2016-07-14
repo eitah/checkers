@@ -10,11 +10,9 @@ describe('Board', () => {
     it('should create a board object', (done) => {
       const p1 = new Player({
         name: 'Joseph Irons',
-        color: 'white',
       });
       const p2 = new Player({
         name: 'Bob Riggs',
-        color: 'black',
       });
       const b = new Board({
         player1: p1._id,
@@ -34,15 +32,13 @@ describe('Board', () => {
     it('should initialize the pieces array', (done) => {
       const p1 = new Player({
         name: 'Joseph Irons',
-        color: 'white',
       });
       const p2 = new Player({
         name: 'Bob Riggs',
-        color: 'black',
       });
       const b = new Board({
-        player1: p1,
-        player2: p2,
+        player1: p1._id,
+        player2: p2._id,
       });
       b.initPieces();
       b.validate(err => {

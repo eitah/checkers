@@ -9,11 +9,6 @@ const schema = new Schema({
           required: true,
           minlength: 3,
         },
-  isTurn: { type: Boolean,
-            default: false,
-          },
-  color: { type: String, enum: ['white', 'black'] },
-  // pieces: { type: [ pieces ] },
   dateCreated: { type: Date, default: Date.now },
 });
 

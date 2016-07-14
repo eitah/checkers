@@ -1,0 +1,17 @@
+[
+  {
+    "_id": { "$oid": "01234567890123456789aaa1" },
+    "name" : "Jessica Irons",
+    "createdDate": { "$date": "2016-03-15T00:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "01234567890123456789aaa2" },
+    "name" : "Gerome SoreLoser",
+    "createdDate": { "$date": "2016-03-15T00:00:00.000Z" }
+  },
+  {
+    "_id": { "$oid": "01234567890123456789aaa3" },
+    "name" : "Seanan McGuire",
+    "createdDate": { "$date": "2016-03-15T00:00:00.000Z" }
+  }
+]

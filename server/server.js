@@ -25,6 +25,7 @@ app.listen(port, () => {
 });
 
 app.use('/players', require('./controllers/players'));
+app.use('/boards', require('./controllers/boards'));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../static/index.html'));
